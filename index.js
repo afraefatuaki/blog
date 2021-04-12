@@ -3,7 +3,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.static('public'));
 const data = require('./articles.json');
-console.log(data)
+// console.log(data)
 app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT || 5000
@@ -22,9 +22,11 @@ app.get('/', (req, res) => {
 })
 app.get('/blog/:id', (req, res) => {
     console.log(req.params.id)
+    let article = data.find(elt => elt.id === req.params.id)
+    console.log(article)
     res.render('pages/blog',
         {
             title: 'Blog',
-            data
+            article
         })
 })
