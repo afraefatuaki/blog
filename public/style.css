@@ -1,0 +1,15 @@
+a{
+text-decoration: none;
+}
+.logo{
+    color: black;
+    letter-spacing: 10px
+}
+header{
+    display: flex;
+    justify-content: space-around;
+}
+
+nav{
+    display: flex;
+}
