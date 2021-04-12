@@ -2,7 +2,8 @@ const express = require('express');
 require('dotenv').config();
 const app = express();
 app.use(express.static('public'));
-const articles = require('./articles.json');
+const data = require('./articles.json');
+console.log(data)
 app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT || 5000
@@ -16,6 +17,14 @@ app.get('/', (req, res) => {
     res.render('pages/index',
         {
             title: 'Homepage',
-            data: articles
+            data
+        })
+})
+app.get('/blog/:id', (req, res) => {
+    console.log(req.params.id)
+    res.render('pages/blog',
+        {
+            title: 'Blog',
+            data
         })
 })
