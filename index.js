@@ -22,11 +22,7 @@ app.get('/', (req, res) => {
 })
 app.get('/blog/:id', (req, res) => {
     console.log(req.params.id)
-    let article = data.find(elt => elt.id === req.params.id)
+    let article = data.find(elt => elt.id == req.params.id)
     console.log(article)
-    res.render('pages/blog',
-        {
-            title: 'Blog',
-            article
-        })
+    res.render('pages/blog', { article })
 })

@@ -7,17 +7,27 @@
 
 <body>
     <%- include ('../partials/header.ejs') %>
-        <h1>one blog</h1>
-        <section>
-            <h1>One article</h1>
-
-
+        <figure>
             <img src=<%=article.url%> alt="">
-            <p>
-                <%=article.body%>
-            </p>
-
-        </section>
+            <figcaption>
+                <h1>
+                    <%= article.title %>
+                </h1>
+                <p>
+                    <%= article.body %>
+                </p><br>
+                <h3>
+                    <%= article.published_at %>
+                </h3><br>
+                <h3>
+                    <%= article.duration %>
+                </h3><br>
+                <h3>
+                    <%= article.author %>
+                </h3><br>
+                <img src=<%=article.author_bild%> alt="">
+            </figcaption>
+        </figure>
 
 </body>
 
