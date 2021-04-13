@@ -11,6 +11,7 @@ app.listen(PORT, () => {
     console.log('listening on', `http://localhost:${PORT}`)
 });
 
+//body-parser
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.get('/', (req, res) => {
@@ -25,4 +26,14 @@ app.get('/blog/:id', (req, res) => {
     let article = data.find(elt => elt.id == req.params.id)
     console.log(article)
     res.render('pages/blog', { article })
+})
+
+app.get('/addNew', (req, res) => {
+    res.render('pages/addNew')
+})
+
+app.post('/addNew/new', (req, res) => {
+    console.log(req.body)
+    //for post we alway need a res.redirect
+    res.redirect('/')
 })
